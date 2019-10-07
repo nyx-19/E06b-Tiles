@@ -1,7 +1,7 @@
 """
 Platformer Game
 """
-import open_color, arcade
+import open_color, arcade, os
 
 # Constants
 SCREEN_WIDTH = 800
@@ -9,15 +9,15 @@ SCREEN_HEIGHT = 600
 SCREEN_TITLE = "Tiled Map Editor Test"
 
 # Constants used to scale our sprites from their original size
-CHARACTER_SCALING = 0.5
+CHARACTER_SCALING = .25
 TILE_SCALING = 0.5
 SPRITE_PIXEL_SIZE = 64
 GRID_PIXEL_SIZE = (SPRITE_PIXEL_SIZE * TILE_SCALING)
 
 # Movement speed of player, in pixels per frame
-PLAYER_MOVEMENT_SPEED = 2
+PLAYER_MOVEMENT_SPEED = 4
 GRAVITY = 1
-PLAYER_JUMP_SPEED = 15
+PLAYER_JUMP_SPEED =15
 
 # How many pixels to keep as a minimum margin between the character
 # and the edge of the screen.
@@ -120,7 +120,8 @@ class MyGame(arcade.Window):
         score_text = f"Score: {self.score}"
         arcade.draw_text(score_text, 10 + self.view_left, 10 + self.view_bottom,
                          arcade.csscolor.WHITE, 18)
-
+ 
+ 
     def on_key_press(self, key, modifiers):
         """Called whenever a key is pressed. """
 
@@ -199,7 +200,8 @@ class MyGame(arcade.Window):
                                 SCREEN_WIDTH + self.view_left,
                                 self.view_bottom,
                                 SCREEN_HEIGHT + self.view_bottom)
-
+        
+            
 
 def main():
     """ Main method """
